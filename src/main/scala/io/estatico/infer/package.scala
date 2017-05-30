@@ -26,11 +26,5 @@ package object infer {
    * Automatically convert the `Infer` value to its original type.
    * Compile with optimization to eliminate this call at runtime.
    */
-  @inline implicit def unInfer(i: Infer): i.Inferred_4D488932_5A36_4AF7_B8EC_0FCE39436A68
-    = i.asInstanceOf[i.Inferred_4D488932_5A36_4AF7_B8EC_0FCE39436A68]
-
-  implicit final class RichInfer(val repr: Infer) extends AnyVal {
-    @inline def inferred: repr.Inferred_4D488932_5A36_4AF7_B8EC_0FCE39436A68
-      = repr.asInstanceOf[repr.Inferred_4D488932_5A36_4AF7_B8EC_0FCE39436A68]
-  }
+  @inline def unInfer(i: Infer): Inferred[i.type] = i.asInstanceOf[Inferred[i.type]]
 }
